@@ -62,9 +62,9 @@ public class BattleSimulator
     public void runBattle() {
         // juicy lore dump. Also sets up the size and indexes of both armies.
         System.out.println("In the dark distant future. Humans" +
-                            " and elves unite to battle against the world's"
+                            " and elves unite to \nbattle against the world's"
                             + " greatest threat... unchecked capitalism."
-                            + " Just kidding, it's demons. It's always demons.");
+                            + " \nJust kidding, it's demons. It's always demons.");
         System.out.println("The Humanity Alliance: " + armyOne.size() + " units.");
         System.out.println("The Demon Alliance: " + armyTwo.size() + " units.");
         
@@ -85,7 +85,7 @@ public class BattleSimulator
                 armyOneCreature.takeDamage(armyTwoDamage);
             }
             // handles battle outcomes
-            if (armyOneCreature.isAlive() && !armyTwoCreature.isAlive()) {
+            if (!armyOneCreature.isAlive() && !armyTwoCreature.isAlive()) {
                 drawKnockouts++;
                 armyOneIndex++;
                 armyTwoIndex++;
@@ -112,7 +112,8 @@ public class BattleSimulator
         } else if (armyOneIndex >= armyOne.size()) {
             System.out.println("The Demon Alliance has won the battle!");
         } else {
-            System.out.println("The Humanity Alliance has won the battle!");
+            System.out.println("The Humanity Alliance has won the battle!");   
         }
+        
     }
 }
