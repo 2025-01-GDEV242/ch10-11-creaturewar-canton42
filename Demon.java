@@ -1,33 +1,35 @@
 
 /**
- * Write a description of class Demon here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Abstract class Demon - 
+ * The main class which provides base functionality for all demonic creatures.
+ * 
+ * @author Nolan Canto
+ * @version 2025.04.09
  */
-public class Demon
+public abstract class Demon extends Creature
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private static final double MAGIC_CHANCE = 0.05;
 
     /**
-     * Constructor for objects of class Demon
+     * Constructor for Demon subclasses
+     * @param str demon strength
+     * @param hp demon hit points
      */
-    public Demon()
+    public Demon(int str, int hp)
     {
-        // initialise instance variables
-        x = 0;
+        super(str, hp);
     }
-
+    
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Demon attack has a 5% chance to inflict +50 bonus damage.
+     * @return damage value
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    @Override
+    public int attack() {
+        int baseDamage = super.attack();
+        if (Randomizer.nextInt(100) < (MAGIC_CHANCE * 100)) {
+            return baseDamage + 50;
+        }
+        return baseDamage;
     }
 }
