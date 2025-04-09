@@ -4,7 +4,7 @@
  * Implements a maximum/minimum strength for the creature type [18/5]
  * Implements a maximum/minimum hitpoint total for the creature type [25/8]
  *
- * The Elf creature has a 10% chance to deal magical damage, which will double
+ * The Elf is a magical creature which has a 10% chance to deal magical damage, which will double
  * the amount of base damage it does.
  * 
  * @author Nolan Canto

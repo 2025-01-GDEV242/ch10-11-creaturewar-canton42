@@ -3,6 +3,9 @@
  * Abstract class Demon - 
  * The main class which provides base functionality for all demonic creatures.
  * 
+ * All Demon subclasses have a 5% chance to inflict +50 bonus damage when
+ * attacking.
+ * 
  * @author Nolan Canto
  * @version 2025.04.09
  */

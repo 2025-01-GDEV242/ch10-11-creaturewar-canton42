@@ -1,33 +1,33 @@
 
 /**
- * Write a description of class Cyberdemon here.
+ * The Cyberdemon class implements a wrapper for the base Demon class with the following additions
+ * Implements a maximum/minimum strength for the demon type [40/20]
+ * Implements a maximum/minimum hitpoint total for the demon type [100/25]
  *
- * @author (your name)
- * @version (a version number or a date)
+ * The Cyberdemon is a powerful demon which has high health and attack stats.
+ * Like other demons, it has a 5% chance to inflict +50 bonus damage.
+ * Unfortunately, Cyberdemons are prone to being ripped and teared by angry
+ * space marines.
+ *
+ * @author Nolan Canto
+ * @version 2025.04.09
  */
-public class Cyberdemon
+public class Cyberdemon extends Demon
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+    private static final int MAX_CYBERDEMON_HP = 100;
+    private static final int MIN_CYBERDEMON_HP = 25;
+    private static final int MAX_CYBERDEMON_STR = 40;
+    private static final int MIN_CYBERDEMON_STR = 20;
+    
     /**
-     * Constructor for objects of class Cyberdemon
+     * Constructor Cyberdemon - generates a demon with random stats within
+     * Cyberdemon ranges.
      */
     public Cyberdemon()
     {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+        super(
+            Randomizer.nextInt(MAX_CYBERDEMON_STR-MIN_CYBERDEMON_STR)+MIN_CYBERDEMON_STR,
+            Randomizer.nextInt(MAX_CYBERDEMON_HP-MIN_CYBERDEMON_HP)+MIN_CYBERDEMON_HP        
+        );
     }
 }
