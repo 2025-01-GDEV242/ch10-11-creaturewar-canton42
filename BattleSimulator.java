@@ -24,7 +24,7 @@ public class BattleSimulator
         armyTwo = new ArrayList<>();
         battlesFought = 0;
         drawKnockouts = 0;
-        
+        createArmies();
     }
     
     /**
