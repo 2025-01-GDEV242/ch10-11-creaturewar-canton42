@@ -1,33 +1,44 @@
 
 /**
- * Write a description of class Balrog here.
+ * The Balrog class implements a wrapper for the base Demon class with the following additions
+ * Implements a maximum/minimum strength for the demon type [100/50]
+ * Implements a maximum/minimum hitpoint total for the demon type [200/80]
+ * 
+ * The Balrog is the most powerful demon subclass, having very high attack and
+ * health stats. Balrogs attack twice each round. Like other demons, Balrogs have
+ * a 5% chance to inflict +50 bonus damage with each attack. 
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Nolan Canto
+ * @version 2025.04.09
  */
-public class Balrog
+public class Balrog extends Demon
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private static final int MAX_BALROG_HP = 200;
+    private static final int MIN_BALROG_HP = 80;
+    private static final int MAX_BALROG_STR = 100;
+    private static final int MIN_BALROG_STR = 50;
 
     /**
-     * Constructor for objects of class Balrog
+     * Constructor Balrog - generates a demon with random stats within
+     * Balrog ranges.
      */
     public Balrog()
     {
-        // initialise instance variables
-        x = 0;
+        super(
+            Randomizer.nextInt(MAX_BALROG_STR-MIN_BALROG_STR)+MIN_BALROG_STR,
+            Randomizer.nextInt(MAX_BALROG_HP-MIN_BALROG_HP)+MIN_BALROG_HP        
+        );
     }
-
+    
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Balrogs attack twice each round and have a 5% chance to inflict
+     * +50 bonus damage with each attack like other demons.
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    @Override
+    public int attack() {
+        int firstAttack = super.attack();
+        int secondAttack = super.attack();
+        
+        return firstAttack + secondAttack;
     }
 }
