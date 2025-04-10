@@ -1,7 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 /**
- * Write a description of class BattleSimulator here.
+ * The BattleSimulator class simulates a battle between two opposing armies.
+ * When a battle commences, only one unit from each army can face each other at
+ * a time. A battle can go in either army's favor, or end with both of them
+ * elminating each other (a draw). Army One consists of humans, elves, and wizards.
+ * Army Two consists of humans, cyberdemons, and balrogs. 
  *
  * @author Nolan Canto
  * @version 2025.04.09
@@ -40,8 +44,8 @@ public class BattleSimulator
                 armyOne.add(new Human());
             } else if (creatureType <= 8) { // should be 20% chance for elf
                 armyOne.add(new Elf());
-            } else {  // 10% chance for a custom creature in which I haven't made yet.
-                armyOne.add(new Human()); // human placeholder for now
+            } else {  // 10% chance for wizard
+                armyOne.add(new Wizard()); // human placeholder for now
             }
         }
         
@@ -61,12 +65,12 @@ public class BattleSimulator
     
     public void runBattle() {
         // juicy lore dump. Also sets up the size and indexes of both armies.
-        System.out.println("In the dark distant future. Humans" +
-                            " and elves unite to \nbattle against the world's"
+        System.out.println("In the dark distant future. Humans," +
+                            " elves, and wizards unite to \nbattle against the world's"
                             + " greatest threat... unchecked capitalism."
-                            + " \nJust kidding, it's demons. It's always demons.");
-        System.out.println("The Humanity Alliance: " + armyOne.size() + " units.");
-        System.out.println("The Demon Alliance: " + armyTwo.size() + " units.");
+                            + " \nJust kidding, it's demons.");
+        System.out.println("\nThe Humanity Alliance: " + armyOne.size() + " units.");
+        System.out.println("The Demon Alliance: " + armyTwo.size() + " units.\n");
         
         int armyOneIndex = 0;
         int armyTwoIndex = 0;
@@ -104,15 +108,15 @@ public class BattleSimulator
         System.out.println("\n===== BATTLE RESULTS =====");
         System.out.println("\nBattles fought: " + battlesFought);
         System.out.println("Draw Knockouts: " + drawKnockouts);
-        System.out.println(" Human Alliance remaining: " + (armyOne.size() - armyOneIndex));
-        System.out.println(" Demon Alliance remaining: " + (armyTwo.size() - armyTwoIndex));
+        System.out.println("Human Alliance remaining: " + (armyOne.size() - armyOneIndex));
+        System.out.println("Demon Alliance remaining: " + (armyTwo.size() - armyTwoIndex));
         
         if (armyOneIndex >= armyOne.size() && armyTwoIndex >= armyTwo.size()) {
             System.out.println("\nThe battle ended with both armies eliminating eachother. Awkward.");
         } else if (armyOneIndex >= armyOne.size()) {
-            System.out.println("The Demon Alliance has won the battle!");
+            System.out.println("\nThe Demon Alliance has won the battle!");
         } else {
-            System.out.println("The Humanity Alliance has won the battle!");   
+            System.out.println("\nThe Humanity Alliance has won the battle!");   
         }
         
     }
